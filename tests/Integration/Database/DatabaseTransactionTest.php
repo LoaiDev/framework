@@ -30,7 +30,16 @@ class DatabaseTransactionTest extends TestCase
      */
     public function test_it_can_handle_implicit_commits()
     {
+        $database = $this->app->make('db');
+
+        $database->connection('mysql')->beginTransaction();
+
         DB::unprepared('CREATE TABLE a (col varchar(1) null)');
+
+        $connection = $database->connection('mysql');
+
+        $connection->rollBack();
+        $connection->disconnect();
 
         $this->assertTrue(true);
     }
