@@ -26,11 +26,11 @@ class DatabaseMySqlConnectionTest extends TestCase
 
     protected function setUp(): void
     {
-        parent::setUp();
-
         if (! isset($_SERVER['CI']) || windows_os()) {
             $this->markTestSkipped('This test is only executed on CI in Linux.');
         }
+
+        parent::setUp();
 
         if (! Schema::hasTable(self::TABLE)) {
             Schema::create(self::TABLE, function (Blueprint $table) {
