@@ -8,7 +8,7 @@ use Orchestra\Testbench\TestCase;
 
 class DatabaseTransactionTest extends TestCase
 {
-    use DatabaseTransactions;
+    // use DatabaseTransactions;
 
     protected function getEnvironmentSetUp($app)
     {
